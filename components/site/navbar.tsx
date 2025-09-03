@@ -25,13 +25,13 @@ export function Navbar() {
         <Link href="/" className="inline-flex items-center gap-2">
           <span className="group inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#0f1a2b] ring-1 ring-white/10">
             <img
-              src="/logo-star.png"
+              src="/starLogo.png"
               alt="VaderTech star logo"
-              className="h-3.5 w-3.5 object-contain transition-transform group-hover:-translate-y-0.5"
+              className=" object-contain rounded-lg transition-transform group-hover:-translate-y-0.5"
             />
             <span className="sr-only">VaderTech</span>
           </span>
-          <span className="font-heading text-base font-bold tracking-wide text-brand md:text-lg">VaderTech</span>
+          <span className="cking-wide text-brand  font-bold md:text-lg">VaderTech</span>
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">

@@ -133,24 +133,9 @@ export function Services() {
         End-to-end product delivery, from discovery and design to launch and ongoing iteration.
       </motion.p>
 
-      {/* Overview chips */}
-      <div className="mx-auto mt-8 max-w-3xl md:mt-10">
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {overview.map((o, i) => (
-            <motion.a
-              key={o.id}
-              href={`/#${o.id}`}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center text-sm text-white/85 backdrop-blur transition hover:-translate-y-0.5"
-            >
-              {o.label}
-            </motion.a>
-          ))}
-        </div>
-      </div>
+      
+  
+      
 
       {/* Detailed sections */}
       <div className="mt-12 space-y-10 md:space-y-12">

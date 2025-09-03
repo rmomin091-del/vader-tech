@@ -9,13 +9,14 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between md:px-6">
         <Link href="/" className="inline-flex items-center gap-2">
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#0f1a2b] ring-1 ring-white/10">
-            <img src="/logo-star.png" alt="VaderTech star logo" className="h-3.5 w-3.5 object-contain" />
+            <img src="/starLogo.png" alt="VaderTech star logo" className=" object-contain rounded-lg transition-transform group-hover:-translate-y-0.5" />
+
             <span className="sr-only">VaderTech</span>
           </span>
           <span className="text-sm font-semibold tracking-wide text-brand md:text-base">VaderTech</span>
         </Link>
 
-        <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[12px] text-white/70">
+        {/* <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[12px] text-white/70">
           <Link href="/" className="transition-colors hover:text-white">
             <strong className="font-semibold text-white">Home</strong>
           </Link>
@@ -28,7 +29,7 @@ export function Footer() {
           <Link href="/#contact" className="transition-colors hover:text-white">
             <strong className="font-semibold text-white">Contact</strong>
           </Link>
-        </nav>
+        </nav> */}
 
         {/* Removed the duplicate dynamic copyright line here */}
         {/* (was: © {new Date().getFullYear()} VaderTech ...) */}
@@ -62,7 +63,7 @@ export function Footer() {
 
       <div className="mx-auto mt-8 max-w-3xl px-4 text-center md:px-6">
         <p className="text-pretty text-sm text-white/80 md:text-base">
-          <span className="text-brand">VaderTech</span> — Engineering the future, one project at a time. We build
+          <span className="text-brand"></span>Engineering the future, one project at a time. We build
           intelligent, powerful, and scalable digital experiences.
         </p>
 

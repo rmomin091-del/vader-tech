@@ -25,7 +25,7 @@ export function AboutSection() {
         >
           <p className="text-pretty text-white/80 md:text-lg">
             We are a product-focused team that helps ambitious companies ship fast, scale reliably, and stay
-            secure—without compromising developer experience or user delight.
+            secure without compromising developer experience or user delight.
           </p>
           <p className="mt-4 text-white/70">
             Our process blends discovery, iterative delivery, and observability so you see progress early and often. We
@@ -60,7 +60,7 @@ export function AboutSection() {
         {[
           { k: "Projects", v: "50+" },
           { k: "Uptime", v: "99.9%" },
-          { k: "Avg. TTM", v: "4-8 wks" },
+          { k: "Avg. TTM", v: "4-8 weeks" },
           { k: "NPS", v: "70+" },
         ].map((stat) => (
           <div

@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function Hero() {
   return (
-    <section className="relative isolate mx-auto flex min-h-[86vh] w-full max-w-6xl flex-col items-center justify-center px-4 text-center">
+    <section className="relative isolate mx-auto flex min-h-[96vh] w-full max-w-6xl flex-col items-center justify-center px-4 text-center">
       {/* Star background */}
       <Starfield />
       {/* Motion container with staggered children */}
@@ -30,26 +30,26 @@ export function Hero() {
           className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" aria-hidden />
-          <span className="text-[11px] font-medium text-white/70">Exploring the Future</span>
+          <span className="text-[14px] font-bold text-white/70">Exploring the Future</span>
         </motion.div>
 
         <motion.h1
           variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
-          className="text-pretty text-6xl font-semibold leading-tight tracking-tight text-white/95 md:text-7xl"
+          className="text-pretty text-7xl font-semibold leading-tight tracking-tight text-white/95 "
         >
           <span className="text-brand">VaderTech</span>
         </motion.h1>
 
         <motion.p
           variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
-          className="mt-5 text-balance text-base text-white/80 md:mt-6 md:text-lg"
+          className="mt-5 text-balance text-base font-bold text-white/80 md:mt-6 md:text-lg"
         >
-          Your Ideas, Engineered to Perfection — Join the Tech Side
+          Your Ideas, Engineered to Perfection —  Join the Tech Side
         </motion.p>
 
         <motion.p
           variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
-          className="mt-3 text-pretty text-sm leading-relaxed text-white/60 md:text-base"
+          className="mt-3 text-pretty text-sm leading-relaxed font-semibold text-white/60 md:text-base"
         >
           We build intelligent, powerful, and scalable digital solutions for startups, SMEs, and visionary companies.
         </motion.p>
