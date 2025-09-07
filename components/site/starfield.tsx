@@ -23,26 +23,22 @@ export function Starfield() {
     const DPR = Math.min(2, window.devicePixelRatio || 1)
     canvas.width = width * DPR
     canvas.height = height * DPR
-    ctx.setTransform(1, 0, 0, 1, 0, 0) // reset before scaling
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.scale(DPR, DPR)
 
-    const STAR_COUNT = Math.floor((width * height) / 13000)
+    // More stars for a dense starfield
+    const STAR_COUNT = Math.floor((width * height) / 6000)
     const stars = Array.from({ length: STAR_COUNT }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      r: Math.random() * 1.2 + 0.3,
+      r: Math.random() * 1.5 + 0.5, // slightly bigger stars
       a: Math.random(),
-      s: Math.random() * 0.015 + 0.005, // twinkle speed
+      s: Math.random() * 0.02 + 0.005, // slightly faster twinkle
     }))
 
     const drawFrame = () => {
-      ctx.clearRect(0, 0, width, height)
-
-      // faint diagonal gradient for depth
-      const g = ctx.createLinearGradient(0, 0, width, height)
-      g.addColorStop(0, "rgba(14,23,40,0.6)")
-      g.addColorStop(1, "rgba(7,11,20,0.4)")
-      ctx.fillStyle = g
+      // pure black background
+      ctx.fillStyle = "#000"
       ctx.fillRect(0, 0, width, height)
 
       // stars
@@ -58,7 +54,6 @@ export function Starfield() {
       if (!reduceMotion) raf = requestAnimationFrame(drawFrame)
     }
 
-    // initial paint
     drawFrame()
 
     const onResize = () => {
@@ -69,7 +64,6 @@ export function Starfield() {
       canvas.height = height * DPR2
       ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.scale(DPR2, DPR2)
-      // repaint once on resize
       drawFrame()
     }
     window.addEventListener("resize", onResize)
@@ -83,8 +77,8 @@ export function Starfield() {
       const { innerWidth, innerHeight } = window
       const nx = e.clientX / innerWidth - 0.5
       const ny = e.clientY / innerHeight - 0.5
-      targetX = nx * 10 // translate up to ~10px horizontally
-      targetY = ny * 6 // translate up to ~6px vertically
+      targetX = nx * 10
+      targetY = ny * 6
       if (!rafParallax) rafParallax = requestAnimationFrame(stepParallax)
     }
     const stepParallax = () => {
@@ -113,16 +107,6 @@ export function Starfield() {
   return (
     <div ref={containerRef} className="absolute inset-0 -z-10 will-change-transform">
       <canvas ref={ref} className="h-full w-full" aria-hidden />
-      {/* extra lens vignette */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          maskImage: "radial-gradient(60% 40% at 50% 45%, rgba(0,0,0,1) 20%, rgba(0,0,0,0.8) 55%, transparent 90%)",
-          WebkitMaskImage:
-            "radial-gradient(60% 40% at 50% 45%, rgba(0,0,0,1) 20%, rgba(0,0,0,0.8) 55%, transparent 90%)",
-        }}
-      />
     </div>
   )
 }

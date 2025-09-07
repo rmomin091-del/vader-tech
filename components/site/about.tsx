@@ -12,7 +12,10 @@ export function AboutSection() {
         transition={{ duration: 0.5 }}
         className="text-center text-3xl font-semibold tracking-tight md:text-5xl"
       >
-        About <span className="text-brand">VaderTech</span>
+        About{" "}
+        <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent font-bold">
+          VaderTech
+        </span>
       </motion.h2>
 
       <div className="mt-10 grid items-start gap-6 md:mt-12 md:grid-cols-2">
@@ -24,12 +27,18 @@ export function AboutSection() {
           className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur"
         >
           <p className="text-pretty text-white/80 md:text-lg">
-            We are a product-focused team that helps ambitious companies ship fast, scale reliably, and stay
-            secure without compromising developer experience or user delight.
+            We are a <span className="font-bold text-white">product-focused team</span> that helps ambitious companies{" "}
+            <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent font-semibold">
+              ship fast, scale reliably, and stay secure
+            </span>{" "}
+            without compromising developer experience or user delight.
           </p>
           <p className="mt-4 text-white/70">
-            Our process blends discovery, iterative delivery, and observability so you see progress early and often. We
-            own outcomes, not just tickets.
+            Our process blends <span className="font-bold">discovery</span>, <span className="font-bold">iterative delivery</span>, and{" "}
+            <span className="font-bold">observability</span> so you see progress early and often. We{" "}
+            <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent font-semibold">
+              own outcomes, not just tickets
+            </span>.
           </p>
         </motion.div>
 
@@ -50,7 +59,10 @@ export function AboutSection() {
               key={item}
               className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 md:text-base"
             >
-              {item}
+              <span className="font-semibold bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
+                {item.split(" ")[0]}
+              </span>{" "}
+              {item.split(" ").slice(1).join(" ")}
             </li>
           ))}
         </motion.ul>
@@ -67,7 +79,11 @@ export function AboutSection() {
             key={stat.k}
             className="rounded-xl border border-white/10 bg-white/5 p-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
           >
-            <div className="text-2xl font-semibold text-white">{stat.v}</div>
+            <div className="text-2xl font-bold text-white">
+              <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
+                {stat.v}
+              </span>
+            </div>
             <div className="mt-1 text-xs uppercase tracking-wide text-white/60">{stat.k}</div>
           </div>
         ))}
