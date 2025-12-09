@@ -1,3 +1,5 @@
+// components/site/navbar.tsx (FINAL UPDATED FILE)
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -19,10 +21,12 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // 🛠️ UPDATED NAV LINKS ARRAY: Testimonials now links to the dedicated page
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/#services" },
     { name: "About", href: "/#about" },
+    { name: "Testimonials", href: "/testimonials" }, // <-- LINK TO DEDICATED PAGE
     { name: "Contact", href: "/#contact" },
   ]
 
