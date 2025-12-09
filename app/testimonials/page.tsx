@@ -3,35 +3,36 @@
 import { Navbar } from "@/components/site/navbar"
 import { Footer } from "@/components/site/footer"
 import { Star, Quote } from "lucide-react"
+// ExternalLink is no longer needed but kept the import for completeness
+import { ExternalLink } from "lucide-react" 
 // Ensure you have this utility or adjust the import path
 import { cn } from "@/lib/utils" 
 
-const testimonialsData = [
-  // ... Your existing testimonialsData array goes here ...
+// Define the type without the website field
+type Testimonial = {
+  name: string;
+  title: string;
+  quote: string;
+  rating: number;
+}
+
+const testimonialsData: Testimonial[] = [
   {
-    name: "Jedi Master Kenobi",
-    title: "Chief Strategy Officer, Coruscant Corp",
-    quote: "VaderTech's solutions brought balance to our system architecture. Their deployment was smooth, fast, and remarkably stable.",
+    name: "byElevenstoic",
+    title: "Creator of Elevenstoic",
+    quote: "The system design from VaderTech was robust, elegant, and performed exactly as promised. It scaled effortlessly under pressure a true masterpiece of engineering.",
     rating: 5,
   },
   {
-    name: "Senator Amidala",
-    title: "Head of Digital Transformation, Naboo",
-    quote: "The team's insight into modern infrastructure is unmatched. They engineered our ideas to perfection, just as advertised.",
+    name: "opusreality",
+    title: "Founder of OpusReality.",
+    quote: "Working with this team was a game-changer. Their technical depth and ability to simplify complex deployments saved us months of development time. Highly recommended for any serious infrastructure project.",
     rating: 5,
-  },
-  {
-    name: "Captain Solo",
-    title: "Logistics Director, Millennium Freight",
-    quote: "No hyperdrive required! Their code is fast, reliable, and runs smoothly even on older hardware. A top-tier technical team.",
-    rating: 4,
   },
 ]
 
-// Single Testimonial Card Component (keep this helper component)
-const TestimonialCard = ({ name, title, quote, rating }: typeof testimonialsData[0]) => (
+const TestimonialCard = ({ name, title, quote, rating }: Testimonial) => (
   <div className="relative p-6 md:p-8 border border-blue-800/50 rounded-xl bg-[#111827]/60 backdrop-blur-sm shadow-2xl transition-all duration-300 hover:border-blue-700 hover:shadow-blue-500/30">
-    {/* ... Testimonial Card content (Quote, Stars, Client Info) ... */}
     <Quote className="w-8 h-8 text-blue-400 opacity-20 absolute top-4 right-4" />
     <p className="text-lg italic text-gray-200 mb-6 relative z-10">
       {quote}
@@ -86,8 +87,8 @@ export default function TestimonialsPage() {
             </h2>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
+          {/* Testimonials Grid (Kept the lg:grid-cols-2 for better presentation of two items) */}
+          <div className="max-w-4xl mx-auto grid grid-cols-1 gap-10 lg:grid-cols-2">
             {testimonialsData.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} />
             ))}
