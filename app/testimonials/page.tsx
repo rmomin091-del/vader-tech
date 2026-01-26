@@ -1,7 +1,8 @@
 // app/testimonials/page.tsx
 
-import { Navbar } from "@/components/site/navbar"
-import { Footer } from "@/components/site/footer"
+import {Navbar} from "@/components/site/navbar"   // default export
+import { Footer } from "@/components/site/footer" // named export
+
 import { Star, Quote } from "lucide-react"
 // ExternalLink is no longer needed but kept the import for completeness
 import { ExternalLink } from "lucide-react" 
