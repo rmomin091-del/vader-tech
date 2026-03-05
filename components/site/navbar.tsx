@@ -5,7 +5,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -36,8 +36,8 @@ export function Navbar() {
     >
       <nav
         className={`mx-auto flex max-w-5xl items-center justify-between px-6 py-2.5 transition-all duration-500 rounded-full border ${scrolled
-            ? "bg-[#0b1220]/60 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] mx-4 md:mx-auto"
-            : "bg-transparent border-transparent"
+          ? "bg-[#0b1220]/60 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] mx-4 md:mx-auto"
+          : "bg-transparent border-transparent"
           }`}
       >
         {/* Logo */}

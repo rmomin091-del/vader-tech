@@ -1,7 +1,7 @@
 // components/site/testimonials.tsx
 
 import { Star, Quote } from "lucide-react"
-import { cn } from "@/lib/utils" // Assuming you have a utility for class merging (e.g., clsx/tailwind-merge)
+import { cn } from "../../lib/utils"
 
 const testimonialsData = [
   {
@@ -27,7 +27,7 @@ const testimonialsData = [
 // Single Testimonial Card Component
 const TestimonialCard = ({ name, title, quote, rating }: typeof testimonialsData[0]) => (
   <div className="relative p-6 md:p-8 border border-blue-800/50 rounded-xl bg-[#111827]/60 backdrop-blur-sm shadow-2xl transition-all duration-300 hover:border-blue-700 hover:shadow-blue-500/30">
-    
+
     {/* Quote Icon */}
     <Quote className="w-8 h-8 text-blue-400 opacity-20 absolute top-4 right-4" />
 
@@ -62,7 +62,7 @@ export function TestimonialSection() {
   return (
     <section id="testimonials" className="py-20 md:py-32 relative z-10">
       <div className="container mx-auto px-4">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">

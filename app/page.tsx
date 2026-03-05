@@ -1,13 +1,13 @@
 "use client"
 
 import { useEffect } from "react"
-import { Navbar } from "@/components/site/navbar"
-import { Hero } from "@/components/site/hero"
-import { Features } from "@/components/site/features"
-import { Services } from "@/components/site/services"
-import { AboutSection } from "@/components/site/about"
-import { ContactSection } from "@/components/site/contact"
-import { Footer } from "@/components/site/footer"
+import { Navbar } from "../components/site/navbar"
+import { Hero } from "../components/site/hero"
+import { Features } from "../components/site/features"
+import { Services } from "../components/site/services"
+import { AboutSection } from "../components/site/about"
+import { ContactSection } from "../components/site/contact"
+import { Footer } from "../components/site/footer"
 
 export default function HomePage() {
   useEffect(() => {

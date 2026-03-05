@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import { Starfield } from "./starfield"
 import { ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
