@@ -35,57 +35,30 @@ export function Services() {
         We provide a range of services to help your business grow with technology, design, and innovation.
       </motion.p>
 
-      <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service, i) => {
           const Icon = service.icon
-
-          // Motion values for 3D tilt
-          const x = useMotionValue(0)
-          const y = useMotionValue(0)
-          const rotateX = useTransform(y, [-50, 50], [15, -15])
-          const rotateY = useTransform(x, [-50, 50], [-15, 15])
 
           return (
             <motion.article
               key={service.title}
-              style={{ rotateX, rotateY, x, y, perspective: 1000 }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect()
-                const px = e.clientX - rect.left - rect.width / 2
-                const py = e.clientY - rect.top - rect.height / 2
-                x.set(px / 10)
-                y.set(py / 10)
-              }}
-              onMouseLeave={() => {
-                x.set(0)
-                y.set(0)
-              }}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ type: "spring", stiffness: 160, damping: 15, delay: i * 0.07 }}
-              className="group relative rounded-2xl border border-white/10 bg-gradient-to-tr from-[#0c1224]/70 via-[#0b1220]/40 to-[#0c1224]/70 p-6 shadow-lg shadow-black/20 backdrop-blur-lg transition-all"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group relative h-full rounded-2xl border border-white/5 bg-[#0f172a]/30 p-8 shadow-2xl backdrop-blur-xl transition-all hover:bg-[#0f172a]/50 hover:shadow-blue-500/10"
             >
-              <motion.div
-                whileHover={{ scale: 1.15 }}
-                transition={{ type: "spring", stiffness: 200, damping: 12 }}
-                className="flex items-start gap-4"
-              >
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-400 shadow-lg">
-                  <Icon className="h-7 w-7 text-white" />
-                </span>
-                <h3 className="text-lg font-bold text-white md:text-xl">{service.title}</h3>
-              </motion.div>
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/10 to-cyan-400/10 text-blue-400 ring-1 ring-white/10 group-hover:from-blue-500 group-hover:to-cyan-400 group-hover:text-white transition-all duration-300">
+                <Icon className="h-7 w-7" />
+              </div>
 
-              <p className="mt-3 text-sm text-white/80 md:text-base">{service.desc}</p>
+              <h3 className="mt-6 text-xl font-bold text-white group-hover:text-blue-300 transition-colors uppercase tracking-tight">{service.title}</h3>
+              <p className="mt-3 text-base text-white/50 leading-relaxed transition-colors group-hover:text-white/70">{service.desc}</p>
 
-              <motion.div
-                aria-hidden
-                className="mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.5 }}
-              />
+              {/* Decorative corner element */}
+              <div className="absolute top-0 right-0 p-4 opacity-0 transition-opacity group-hover:opacity-100">
+                <div className="h-2 w-2 rounded-full bg-blue-500/50" />
+              </div>
             </motion.article>
           )
         })}

@@ -15,8 +15,8 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center pt-8 sm:pt-12 md:pt-16"> 
-      {/* Reduced padding for mobile: pt-8, sm:pt-12 */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center pt-8 sm:pt-12 md:pt-16">
+        {/* Reduced padding for mobile: pt-8, sm:pt-12 */}
         <motion.div
           className="mx-auto max-w-2xl"
           initial="hidden"
@@ -34,7 +34,7 @@ export function Hero() {
           {/* Badge */}
           <motion.div
             variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}
-            className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1"
+            className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" aria-hidden />
             <span className="text-[13px] font-extrabold text-white/70">Exploring the Future</span>
@@ -43,19 +43,17 @@ export function Hero() {
           {/* Headline */}
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white"
+            className="text-[2.4rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white px-2 sm:px-0"
           >
-            Your <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">Ideas</span>, Engineered to <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">Perfection</span>
-            <br />
-            Join the <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">Tech Side</span>
+            Your <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">Ideas</span>, <br className="hidden sm:block" /> Engineered to <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">Perfection</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
-            className="mt-4 text-sm sm:text-base md:text-lg font-medium text-white/80"
+            className="mt-6 text-base sm:text-lg md:text-xl font-medium text-white/70 leading-relaxed max-w-xl mx-auto px-4"
           >
-            We build intelligent, powerful, and scalable digital solutions for startups, SMEs, and visionary companies.
+            We build intelligent, powerful, and scalable digital solutions for startups and visionary companies.
           </motion.p>
 
           {/* Button */}

@@ -21,39 +21,41 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // 🛠️ UPDATED NAV LINKS ARRAY: Testimonials now links to the dedicated page
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/#services" },
     { name: "About", href: "/#about" },
-    { name: "Testimonials", href: "/testimonials" }, // <-- LINK TO DEDICATED PAGE
+    { name: "Testimonials", href: "/testimonials" },
     { name: "Contact", href: "/#contact" },
   ]
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-colors ${
-        scrolled ? "bg-[#0b1220]/70 backdrop-blur" : "bg-transparent"
-      }`}
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? "py-2" : "py-5"
+        }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <nav
+        className={`mx-auto flex max-w-5xl items-center justify-between px-6 py-2.5 transition-all duration-500 rounded-full border ${scrolled
+            ? "bg-[#0b1220]/60 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] mx-4 md:mx-auto"
+            : "bg-transparent border-transparent"
+          }`}
+      >
         {/* Logo */}
-        <Link href="/" className="inline-flex items-center gap-2">
-          <span className="group inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#0f1a2b] ring-1 ring-white/10">
+        <Link href="/" className="inline-flex items-center gap-2.5 group">
+          <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg ring-1 ring-white/20 transition-transform group-hover:scale-110">
             <img
               src="/starLogo.png"
-              alt="VaderTech star logo"
-              className="object-contain rounded-lg transition-transform group-hover:-translate-y-0.5"
+              alt="VaderTech"
+              className="h-6 w-6 object-contain brightness-110 transition-transform group-hover:rotate-12"
             />
-            <span className="sr-only">VaderTech</span>
-          </span>
-          <span className="tracking-wide font-extrabold text-white md:text-lg">
-            VaderTech
+          </div>
+          <span className="text-lg font-black tracking-tight text-white uppercase group-hover:text-blue-400 transition-colors">
+            Vader<span className="text-blue-500">Tech</span>
           </span>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* Desktop Links - Agency Style */}
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <NavLink key={link.href} href={link.href} active={pathname === link.href}>
               {link.name}
@@ -61,58 +63,72 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Desktop Button */}
-        <Link href="/#contact">
-          <Button
-            size="sm"
-            className="hidden md:inline-flex h-7 px-3 text-[11px] font-medium text-white"
-            style={{
-              background: "linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)",
-            }}
-          >
-            Get started
-          </Button>
-        </Link>
+        {/* Desktop Button - Premium Agency Style */}
+        <div className="hidden md:block">
+          <Link href="/#contact">
+            <Button
+              className="relative overflow-hidden group bg-white hover:bg-white text-black font-bold h-10 px-6 rounded-full transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-95"
+            >
+              <span className="relative z-10 font-bold">Let's talk</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-indigo-100 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </Button>
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="md:hidden flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/5"
           aria-label={menuOpen ? "Close Menu" : "Open Menu"}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Agency Style Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#0b1220]/95 backdrop-blur"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-x-4 top-20 z-50 overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#0b1220]/95 p-8 shadow-2xl backdrop-blur-2xl md:hidden"
             role="menu"
           >
-            <div className="flex flex-col px-4 py-4 gap-4">
-              {navLinks.map((link) => (
-                <NavLink key={link.href} href={link.href} active={pathname === link.href}>
-                  {link.name}
-                </NavLink>
+            <div className="flex flex-col items-center gap-8">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <NavLink
+                    href={link.href}
+                    active={pathname === link.href}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.name}
+                  </NavLink>
+                </motion.div>
               ))}
 
-              <Link href="/#contact">
-                <Button
-                  size="sm"
-                  className="h-10 text-white"
-                  style={{
-                    background: "linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)",
-                  }}
-                >
-                  Get started
-                </Button>
-              </Link>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                className="w-full text-center"
+              >
+                <Link href="/#contact" onClick={() => setMenuOpen(false)}>
+                  <Button
+                    size="lg"
+                    className="w-full rounded-2xl bg-white font-black text-black hover:bg-blue-50"
+                  >
+                    Get started
+                  </Button>
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
@@ -125,19 +141,34 @@ function NavLink({
   href,
   children,
   active,
+  onClick,
 }: {
   href: string
   children: React.ReactNode
   active?: boolean
+  onClick?: () => void
 }) {
   return (
     <Link
       href={href}
-      className={`text-base font-semibold transition-colors md:text-lg md:font-bold ${
-        active ? "text-white" : "text-white/85 hover:text-white"
-      }`}
+      onClick={onClick}
+      className={`relative px-4 py-2 text-sm font-bold tracking-tight transition-all uppercase ${active ? "text-white" : "text-white/50 hover:text-white"
+        }`}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
+      {active && (
+        <motion.div
+          layoutId="activeNav"
+          className="absolute inset-0 rounded-full bg-white/5 ring-1 ring-white/10 md:block hidden"
+          transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+        />
+      )}
+      {active && (
+        <motion.div
+          className="absolute -bottom-1 left-4 right-4 h-0.5 rounded-full bg-blue-500 md:hidden"
+          layoutId="activeNavMobile"
+        />
+      )}
     </Link>
   )
 }

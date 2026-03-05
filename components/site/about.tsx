@@ -18,54 +18,51 @@ export function AboutSection() {
         </span>
       </motion.h2>
 
-      <div className="mt-10 grid items-start gap-6 md:mt-12 md:grid-cols-2">
+      <div className="mt-12 grid items-stretch gap-8 md:grid-cols-2">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur"
+          transition={{ duration: 0.6 }}
+          className="flex flex-col justify-center rounded-3xl border border-white/5 bg-white/5 p-8 shadow-2xl backdrop-blur-xl md:p-10"
         >
-          <p className="text-pretty text-white/80 md:text-lg">
+          <p className="text-pretty text-lg leading-relaxed text-white/80 md:text-xl">
             We are a <span className="font-bold text-white">product-focused team</span> that helps ambitious companies{" "}
-            <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent font-semibold">
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-bold">
               ship fast, scale reliably, and stay secure
             </span>{" "}
-            without compromising developer experience or user delight.
+            without compromising performance or user delight.
           </p>
-          <p className="mt-4 text-white/70">
-            Our process blends <span className="font-bold">discovery</span>, <span className="font-bold">iterative delivery</span>, and{" "}
-            <span className="font-bold">observability</span> so you see progress early and often. We{" "}
-            <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent font-semibold">
-              own outcomes, not just tickets
-            </span>.
+          <p className="mt-6 text-white/60 leading-relaxed md:text-lg">
+            Our process blends discovery, iterative delivery, and observability so you see progress early and often. We{" "}
+            <span className="text-white font-semibold">own outcomes, not just tickets</span>.
           </p>
         </motion.div>
 
-        <motion.ul
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid gap-3"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid gap-4"
         >
           {[
-            "Outcome-first delivery with weekly demos",
-            "Security and performance as non-negotiables",
-            "Clear communication and transparent roadmaps",
-            "Maintainable code, strong documentation, and handoff",
+            { title: "Weekly Demos", desc: "Outcome-first delivery with regular syncs" },
+            { title: "Non-Negotiables", desc: "Security and performance built-in by default" },
+            { title: "Transparency", desc: "Clear communication and live roadmaps" },
+            { title: "Total Ownership", desc: "Maintainable code and thorough handoff" },
           ].map((item) => (
-            <li
-              key={item}
-              className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 md:text-base"
+            <div
+              key={item.title}
+              className="group flex flex-col rounded-2xl border border-white/5 bg-white/5 p-5 transition-all hover:bg-white/10"
             >
-              <span className="font-semibold bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
-                {item.split(" ")[0]}
-              </span>{" "}
-              {item.split(" ").slice(1).join(" ")}
-            </li>
+              <h4 className="font-bold text-blue-400 transition-colors group-hover:text-blue-300">
+                {item.title}
+              </h4>
+              <p className="mt-1 text-sm text-white/60 leading-snug">{item.desc}</p>
+            </div>
           ))}
-        </motion.ul>
+        </motion.div>
       </div>
 
       <div className="mt-10 grid grid-cols-2 gap-4 md:mt-12 md:grid-cols-4">

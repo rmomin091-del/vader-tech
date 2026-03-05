@@ -37,32 +37,35 @@ export function Features() {
         Outcome-focused partnerships, proven technical patterns, and a delivery process you can trust.
       </motion.p>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
         {features.map((f, i) => {
           const Icon = icons[i % icons.length]
           return (
             <motion.article
               key={f.title}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.1, y: -10, boxShadow: "0 35px 60px rgba(0,0,0,0.5)" }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ type: "spring", stiffness: 150, damping: 15, delay: i * 0.06 }}
-              className="group relative rounded-2xl border border-white/10 bg-gradient-to-tr from-[#0c1224]/70 via-[#0b1220]/40 to-[#0c1224]/70 p-6 shadow-lg shadow-black/20 backdrop-blur-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                y: -8,
+                transition: { duration: 0.2, ease: "easeOut" }
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group relative flex flex-col rounded-3xl border border-white/5 bg-[#0f172a]/40 p-8 shadow-2xl backdrop-blur-xl transition-colors hover:border-white/20 hover:bg-[#0f172a]/60"
             >
-              <div className="flex items-start gap-3">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-400 shadow-lg">
-                  <Icon className="h-6 w-6 text-white" aria-hidden />
-                </span>
-                <h3 className="text-lg font-bold text-white md:text-xl">{f.title}</h3>
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600/20 to-cyan-500/20 text-blue-400 ring-1 ring-white/10 group-hover:from-blue-600 group-hover:to-cyan-500 group-hover:text-white transition-all duration-300">
+                  <Icon className="h-6 w-6" aria-hidden />
+                </div>
+                <h3 className="text-xl font-bold text-white leading-tight">{f.title}</h3>
               </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-white/80 md:text-base">{f.desc}</p>
+              <p className="mt-4 text-white/60 leading-relaxed transition-colors group-hover:text-white/80">{f.desc}</p>
 
-              <div
-                aria-hidden
-                className="mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              />
+              {/* Subtle accent line on hover */}
+              <div className="mt-auto pt-6">
+                <div className="h-0.5 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 group-hover:w-full rounded-full" />
+              </div>
             </motion.article>
           )
         })}

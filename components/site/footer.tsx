@@ -27,7 +27,7 @@ export function Footer() {
             <Instagram className="h-4 w-4" />
           </a>
           <a
-            href="mailto:hello@vadertech.dev"
+            href="mailto:rmomin091@gmail.com"
             aria-label="Gmail"
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/80 transition hover:text-white"
           >
